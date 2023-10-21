@@ -10,10 +10,10 @@ lcg_rand_array(unsigned long long a, unsigned long long c, unsigned long long b,
         exit(1);
     }
 
-    unsigned long long mask = (1 << b) - 1;
+    unsigned long long z = 64 - b;
 
     for (int i = 0; i < n; i++) {
-        seed = (a * seed + c) & mask;
+        seed = (a * seed + c) << z >> z;
         result[i] = seed;
     }
 
