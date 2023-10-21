@@ -1,29 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned long long *
-lcg_rand_array(unsigned long long a, unsigned long long c, unsigned long long b, unsigned long long seed, int n) {
-    unsigned long long *result = (unsigned long long *) malloc(sizeof(unsigned long long) * n);
+typedef unsigned long long ull;
 
-    if (result == NULL) {
-        fprintf(stderr, "Memory allocation failed.\n");
-        exit(1);
-    }
+ull *exercise4_5(ull a, ull c, ull b, ull z0, ull n) {
+    ull *result = (ull *) malloc(sizeof(ull) * n);
 
-    unsigned long long z = 64 - b;
+    ull z = z0;
+    ull x = 64 - b;
 
     for (int i = 0; i < n; i++) {
-        seed = (a * seed + c) << z >> z;
-        result[i] = seed;
+        result[i] = z;
+        z = (a * z + c) << x >> x;
     }
 
     return result;
 }
 
 int main() {
-    unsigned long long *result = lcg_rand_array(1031, 113, 10, 1103, 100);
-
-    for (int i = 0; i < 100; i++) {
+    ull n = 1000;
+    ull *result = exercise4_5(1031, 113, 10, 1103, n);
+    for (int i = 0; i < n; i++) {
         printf("%llu\n", result[i]);
     }
 
