@@ -73,23 +73,23 @@ int main() {
 //    ull _exercise3 = exercise3(630360016, (1u << 31) - 1);
 //    printf("%llu", _exercise3);
 
-    ull n = 100;
+    ull n = 1000;
     // 4
-//    ull *result = exercise4_5_7(1031, 113, 10, 1103, n);
+    ull *result = exercise4_5_7(1031, 113, 10, 1103, n);
 
     // 5
 //    ull *result = exercise4_5_7(3074, 51, 11, 1203, n);
 
-    // 7
+//     //7
 //    ull *result = exercise4_5_7(201, 13, 9, 2103, n);
 
-    // 6
-    ull *result = exercise6_8_9(1604, 11, 3, 2103, n);
+//    // 6
+//    ull *result = exercise6_8_9(1604, 11, 3, 2103, n);
 //
 //    // 8
 //    ull *result = exercise6_8_9(856, 9, 3, 385, n);
 //
-//    // 9
+    // 9
 //    ull *result = exercise6_8_9(187, 8, 5, 119, n);
 
     for (int i = 0; i < n; i++) {
