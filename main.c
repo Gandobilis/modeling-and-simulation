@@ -71,7 +71,7 @@ int main() {
 
 //    ull n = 1000;
     // 3
-//    printf("%d", exercise3(630360016, (1u << 31) - 1));
+    printf("%d", exercise3(630360016, (1u << 31) - 1));
     // 4
 //    ull *result = exercise4_5_7(1031, 113, 10, 1103, n);
 
