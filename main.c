@@ -17,6 +17,7 @@ ull exercise3(ull dividend, ull divisor) {
     return dividend;
 }
 
+// წკგ
 ull *exercise4_5_7(ull a, ull c, ull b, ull z0, ull n) {
     ull *result = (ull *) malloc(sizeof(ull) * n);
 
@@ -31,6 +32,7 @@ ull *exercise4_5_7(ull a, ull c, ull b, ull z0, ull n) {
     return result;
 }
 
+//  მწკგ
 ull *exercise6_8_9(ull a, ull b, ull q, ull z0, ull n) {
     ull *result = (ull *) malloc(sizeof(ull) * n);
 
