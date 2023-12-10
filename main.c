@@ -82,6 +82,22 @@ int exercise17() {
     return 0;
 }
 
+double *exercise23(ull a, ull b, ull b1, ull z0, ull z1, ull n) {
+    double *result = (double *) malloc(sizeof(double) * n);
+
+    ull z;
+    ull x = 64 - b1;
+
+    for (int i = 0; i < n; i++) {
+        z = (a * z0 + b * z1) << x >> x;
+        result[i] = (double) z / (1u << b);
+        z0 = z1;
+        z1 = z;
+    }
+
+    return result;
+}
+
 int main() {
     // 1
 //    exercise1_2(7,(int) 1542.567,3,11,(int) 209129.238754,8);
@@ -99,11 +115,13 @@ int main() {
 //    double *result = exercise6(1604, 11, 3, 2103, n);
 
     // 15
-    double *result = exercise15(1000);
+//    double *result = exercise15(1000);
 
     // 17
 //    printf("%d\n", exercise17());
 
+    // 23
+    double *result = exercise23(11, 7, 4, 11, 14, n);
 
     for (int i = 0; i < n; i++) {
         printf("%f\n", result[i]);
