@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef unsigned long long ull;
 
@@ -43,6 +44,44 @@ double *exercise6(ull a, ull b, ull q, ull z0, ull n) {
     return result;
 }
 
+double generateRandomNumber() {
+    return (double) rand() / RAND_MAX;
+}
+
+double inverseTransform() {
+    return 1.0 / (1.0 - generateRandomNumber());
+}
+
+double *exercise15(ull n) {
+    srand(time(NULL));
+    double *result = (double *) malloc(sizeof(double) * n);
+
+    for (int i = 0; i < n; ++i) {
+        result[i] = inverseTransform();
+    }
+
+    return result;
+}
+
+int exercise17() {
+    srand(time(NULL));
+
+    double randomValue = (double)rand() / RAND_MAX;
+
+    double probabilities[] = {0.4, 0.2, 0.4};
+    int values[] = {-5, 0, 5};
+
+    double cumulativeProbability = 0;
+    for (int i = 0; i < sizeof(probabilities) / sizeof(probabilities[0]); i++) {
+        cumulativeProbability += probabilities[i];
+        if (randomValue <= cumulativeProbability) {
+            return values[i];
+        }
+    }
+
+    return 0;
+}
+
 int main() {
     // 1
 //    exercise1_2(7,(int) 1542.567,3,11,(int) 209129.238754,8);
@@ -51,7 +90,6 @@ int main() {
     // 3
 //    printf("%llu", exercise3(630360016, (1u << 31) - 1));
 
-    // ელემენტთა რაოდენობა გენერირებულ მიმდევრობაში
     ull n = 1000;
 
     // 4
@@ -60,12 +98,18 @@ int main() {
     // 6
 //    double *result = exercise6(1604, 11, 3, 2103, n);
 
-//     განაკომენტარეთ შედეგის სანახავად
-//    for (int i = 0; i < n; i++) {
-//        printf("%f\n", result[i]);
-//    }
-//
-//    free(result);
+    // 15
+    double *result = exercise15(1000);
+
+    // 17
+//    printf("%d\n", exercise17());
+
+
+    for (int i = 0; i < n; i++) {
+        printf("%f\n", result[i]);
+    }
+
+    free(result);
 
     return 0;
 }
